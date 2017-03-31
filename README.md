@@ -42,19 +42,19 @@ Isto acima é o powershell, pra quem nunca viu =)
 Decidi fazer deste, um post de introdução ao framework Powershell e um pouco de seu ecossistema.
 Mais a frente aprofundarei seus módulos, funcionalidades e darei alguns exemplos reais, por hora somente um overview.
 
-Esse post tem diversos links, recomendo que acesse eles ao longo da leitura para melhor entendimento...entretanto, esse post é dividido em quatro modulos - sendo o total deste post o primeiro módulo que compreende a introdução da ferramenta numa forma mais "leve" e com um pouco de história (minha e do powershell) embutida. E outros três módulos (serão destadados por links mais abaixo) que descrevem mais profundamente o como escrever código em powershell, sendo que a ordem destes segue uma metodologia que normalmente eu sigo ao codificar alguma solução/ferramenta em powershell ou em quaquer outra linguagem.
+Esse post tem diversos links, recomendo que acesse eles ao longo da leitura para melhor entendimento... Entretanto, esse post é dividido em quatro modulos - sendo o total deste post o primeiro módulo que compreende a introdução da ferramenta numa forma mais "leve" e com um pouco de história (minha e do powershell) embutida. E outros três módulos (serão destacados por links mais abaixo) que descrevem mais profundamente o como escrever código em powershell, sendo que a ordem destes segue uma metodologia que normalmente eu sigo ao codificar alguma solução/ferramenta em powershell ou em quaquer outra linguagem.
 
 Tudo isso será melhor explicado ao longo deste primeiro post.
 
-Para aqueles que ja tem alguma (mesmo que breve) experiencia em powershell ou na plataforma .NET, ler separadamente os módulos é uma opção. Cada um dos módulos abrange o seu "nicho" e somente ele. Ainda assim, recomendo para quem nunca teve contato com a plataforma que leia este módulo acessando os links ao decorrer do mesmo, desta forma o entendimento será mais claro para você leitor que nunca teve contato com a ferramenta.
+Para aqueles que já tem alguma (mesmo que breve) experiencia em powershell ou na plataforma .NET, ler separadamente os módulos é uma opção. Cada um dos módulos abrange o seu "nicho" e somente ele. Ainda assim, recomendo para quem nunca teve contato com a plataforma que leia este módulo acessando os links ao decorrer do mesmo, desta forma o entendimento será mais claro para você leitor que nunca teve contato com a ferramenta.
 
->Ha também o fato de que eu gosto de distribiur alguns "easter eggs" pelo caminho, assim a experiencia de leitura fica mais divertida. 
+>Ha também o fato de que eu gosto de distribuir alguns "easter eggs" pelo caminho, assim a experiência de leitura fica mais divertida. 
 
-Primeiro um pequeno trecho de Historia...Que seria de um Ferreiro lvl 13 (Str 12; Sta 6; Int 10; Res 9; Cha 12; Wis 10; Wil 5; Ft 7) se ele não contasse as historias de suas Quests e experiencias além das magias que aprendeu a realizar com powershell desde muitas luas atras? 
+Primeiro um pequeno trecho de História... Que seria de um Ferreiro lvl 13 (Str 12; Sta 6; Int 10; Res 9; Cha 12; Wis 10; Wil 5; Ft 7) se ele não contasse as historias de suas Quests e experiencias além das magias que aprendeu a realizar com powershell desde muitas luas atrás? 
 
->Por "um pouco de historia", eu gostaria de brevemente mostrar o que senti ao ter contato com powershell e o porque este desempenhou uma função importante em minha carreira, e também mostrar brevemente o PS e oque pode fazer por você.
+>Por "um pouco de história", eu gostaria de brevemente mostrar o que senti ao ter contato com powershell e o porque este desempenhou uma função importante em minha carreira, e também mostrar brevemente o PS e o que pode fazer por você.
 
-Powershell sem dúvida é hoje minha escolha clara para resolver quaisquer problemas que eu encontro pelo caminho (ando tendo um affair com python, mas é recente)....Mas porque?...Bom...O powershel (A partir daqui chamado carinhosamente pelo seu nick ["**Posh**"](http://www.drogariaminasbrasil.com.br/media/catalog/product/cache/5/image/0dc2d03fe217f8c83829496872af24a0/c/h/chicletes_poosh_arcor_tutti_frutti_7g_40660.jpg)) é uma linguagem extremamente flexível, inteligível e modular, ainda assim sem deixar de ser simples e rápida/leve...Sem dúvida uma das ferramentas mais fortes que a filha do titiu Gates (Binomial Microsoft CORP ou MS ou Master Race {o choro é livre}) criou ate hoje e uma das que mais cresceu desde seu lançamento.
+Powershell sem dúvida é hoje minha escolha clara para resolver quaisquer problemas que eu encontro pelo caminho (ando tendo um affair com python, mas é recente)....Mas porque?...Bom...O powershell (A partir daqui chamado carinhosamente pelo seu nick ["**Posh**"](http://www.drogariaminasbrasil.com.br/media/catalog/product/cache/5/image/0dc2d03fe217f8c83829496872af24a0/c/h/chicletes_poosh_arcor_tutti_frutti_7g_40660.jpg)) é uma linguagem extremamente flexível, inteligível e modular, ainda assim sem deixar de ser simples e rápida/leve...Sem dúvida uma das ferramentas mais fortes que a filha do titiu Gates (Binomial Microsoft CORP ou MS ou Master Race {o choro é livre}) criou ate hoje e uma das que mais cresceu desde seu lançamento.
 
 Voltada para a montagem de scripts poderosos e com os recursos da plataforma .NET, permite que o desenvolvedor rapidamente entregue soluções complexas com poucas linhas de código e inclusive abrangendo soluções que necessitem  resolver paradigmas de orientação. Abaixo um exemplo de CtrlJ de classe simples.
 
@@ -146,13 +146,12 @@ Por fim, após editar um script na ISE, sua execução e dupuração é bem rapi
 
 ![](./imgs/masterraceApproved.gif)
 
-Bem...é isso =)
-Conteudo mais aprofundado num proximo post.
-
 ~~~Powershell
 Write-Host "po-po-po-po-power!"
 ~~~
 
+Bom...vamos então aos aprofundamentos seguindo a metodologia que citei laaaaa 
+    
 
 
 
