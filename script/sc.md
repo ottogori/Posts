@@ -23,7 +23,7 @@ A segunda ação é navegar até a pagina do github e aguardar que o COM esteja 
     }
 ~~~
 
->Caso tenha curiosidade, é possivel utilizar dotSourcing para receber o conteudo da pagina, eg:
+>Caso tenha curiosidade, é possível utilizar dotSourcing para receber o conteudo da pagina, eg:
 ~~~powershell
     $ie.Document.Body.InnerText
 ~~~
@@ -70,7 +70,7 @@ E assim segue.
 
 Segundo nossa POC: Não vamos digitar a senha e vamos dar um hit no botão login.
 
-Para isso usamos algo parecido, porém invocando o metodo "click" do proprio COM-Obj:
+Para isso usamos algo parecido, porém invocando o método "click" do proprio COM-Obj:
 
 ~~~powershell
     ($ie.Document.getElementsByName("commit") | Select-Object -Unique).Click()
@@ -143,3 +143,5 @@ Nosso código completo fica assim:
 
     $ie.Quit()
 ~~~
+
+No proximo módulo vamos fazer com que esse código não seja tão "straightforward" ... está vendo essas duas chamadas iguais do sleep ? vamos transformar ela numa função. Vê o hard coding? vamos remover. Vê como eu poderia criar um metodo handler para os elementos da pagina web? vê como poderia transformar esse print numa função também? ... Tudo isso será abordado aqui: [MODULO 2 - FUNÇÕES](../function/fnc.md)
