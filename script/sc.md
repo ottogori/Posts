@@ -2,16 +2,16 @@
     Write-Verbose 'Essa é uma linha que só aparecerá se eu chamar uma função com o switch "-verbose" '
 ~~~
 
-Digamos que eu seja um Dev da pagina do github e recebi uma demanda para atualizar a método de login, de forma que se alguém digitar o usuário e não a senha, essa pessoa receba uma alerta e o login não seja efetuado. Preciso de uma evidencia do teste, no caso vamos de um print da tela.
+Digamos que eu seja um Dev da pagina do github e recebi uma demanda para atualizar a método de login, de forma que: Se alguém digitar o usuário e não digitar a senha, essa pessoa receba uma alerta e o login não seja efetuado. Preciso também de uma evidencia do teste, nesse caso vamos de um print da tela. Para testar minha nova funcionalidade de login, farei diversos deployments em meu ambiente de LAB e decidi automatizar o teste de login para que para que em todos os meus deployments eu receba uma evidencia de comportamento.
 
-Para testar meu código farei diversos deployments em meu ambiente de LAB e decidi automatizar o teste da pagina para que em todos os meus deployments eu receba um "ok" caso a ação de login tenha sido realizada ou um "não rodou" caso tenha ocorrido algum erro. 
-
-A primeira coisa que terei de fazer é criar um COM-Object do Internet explorer. O controle de dotNET COM Objects é bem simples:
+A primeira coisa que terei de fazer é criar um COM-Object do Internet explorer. O controle de dotNET COM Objects é bem simples, fica assim:
 
 ~~~powershell
     $ie = New-Object -ComObject InternetExplorer.Application
     $ie.Visible = $True
 ~~~
+
+Aqui então a variável "$ie" (no Posh, variaveis são iniciadas por "$"{algo que a MS gosta}) recebe um objeto "InternetExplorer.Application", todas as propriedades deste objeto são acessiveis via dotSourcing.
 
 A segunda ação é navegar até a pagina do github e aguardar que o COM esteja livre para uso.
 
@@ -28,19 +28,19 @@ A segunda ação é navegar até a pagina do github e aguardar que o COM esteja 
     $ie.Document.Body.InnerText
 ~~~
 
-Com a pagina carregada, preciso identificar os objetos da tela e popular seus valores, para tal, uso o mesmo trabalho acima com o recurso de dotSourcing.
+Com a página carregada, preciso identificar os objetos da tela e popular seus valores, para tal, uso o mesmo trabalho acima com o recurso de dotSourcing.
 
 ~~~powershell
     $ie.Document.getElementsByName("login")
 ~~~ 
 
-Porém, a linha acima me traz o objeto e oque eu quero é selecionar e popular com um texto, para isso uso outra função do posh, a "Select-Object" com o switch "-Unique" que faz desta uma seleção unaria.
+Porém, a linha acima me traz o objeto e o que eu quero é selecionar e popular com um texto, para isso uso outra função do posh, a "Select-Object" com o switch "-Unique" que faz desta uma seleção unária.
 
 ~~~powershell
     $ie.Document.getElementsByName("login") | Select-Object -Unique
 ~~~
 
-Seto então a propriedade "Value" deste objeto com o meu login do github.
+"Seto" então a propriedade "Value" deste objeto com o meu login do github.
 
 ~~~powershell
     ($ie.Document.getElementsByName("login") | Select-Object -Unique).Value = "otto.gori@concrete.com.br"
@@ -56,7 +56,7 @@ Observem a evolução da seleção quando executada na console:
     form-control input-block login_field INPUT   System.__ComObject System.__ComObject
 ~~~
 
-Cada uma dessas propriedades é um objeto que pode ser expandido e trabalhado, digamos que eu queira saber o tipo deste objeto:
+Cada uma destas propriedades é um objeto que pode ser expandido e trabalhado, digamos que eu queira saber o tipo deste objeto. Para isso basta selecionar a propriedade "type"
 
 ~~~powershell
     C:\Users\ottog> $ie.Document.getElementsByName("login") | Select-Object type | Format-Table
@@ -66,11 +66,9 @@ Cada uma dessas propriedades é um objeto que pode ser expandido e trabalhado, d
     text
 ~~~
 
-E assim segue.
+E assim segue...
 
-Segundo nossa POC: Não vamos digitar a senha e vamos dar um hit no botão login.
-
-Para isso usamos algo parecido, porém invocando o método "click" do proprio COM-Obj:
+Seguindo nossa POC: NÃO vamos digitar a senha e em seguida vamos dar um hit no botão login. (que curiosamente na pagina do github se chama "commit"). Para isso, usamos algo parecido com o case acima, porém invocando o método "click" do proprio COM-Obj:
 
 ~~~powershell
     ($ie.Document.getElementsByName("commit") | Select-Object -Unique).Click()
@@ -79,12 +77,14 @@ Para isso usamos algo parecido, porém invocando o método "click" do proprio CO
 Se executarmos o código (Tanto na ISE quanto na console), esse será o resultado:
 ![](../imgs/gitFail.png)
 
-Como evidencia de meu teste, quero um print da tela de login com a mensagem. Existem formas mais simples, mas quero mostrar uma forma bem "baixo nivel" de fazer isso que é controlando propriedades do sistema e assemblies do dotNet. Fica assim:
+Como evidência de meu teste, quero um print da tela de login com a mensagem. Existem formas mais simples de fazer isso, mas quero mostrar uma bem "baixo nivel" que é controlando propriedades do sistema e assemblies do dotNet. Fica assim:
 
 ~~~powershell
-    $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, $monitor.Width, $monitor.Height)
-
+    #Esta linha carrega as propriedades de meu monitor principal
     $monitor =  [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize
+    
+    #Esta linha usa a lib "Drawing" para estipular as dimensões do retângulo que será a minha imagem. Observem o cast feito na variavel "$monitor" para obter a altura e largura do monitor
+    $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, $monitor.Width, $monitor.Height) 
 
     $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
 
@@ -92,6 +92,7 @@ Como evidencia de meu teste, quero um print da tela de login com a mensagem. Exi
 
     $graphics.CopyFromScreen($bounds.Location, [Drawing.Point]::Empty, $bounds.size)
 
+    # "$HOME" estipula a home de meu usuário
     $bmp.Save("$HOME\print.png")
 
     $graphics.Dispose()
@@ -144,4 +145,5 @@ Nosso código completo fica assim:
     $ie.Quit()
 ~~~
 
-No proximo módulo vamos fazer com que esse código não seja tão "straightforward" ... está vendo essas duas chamadas iguais do sleep ? vamos transformar ela numa função. Vê o hard coding? vamos remover. Vê como eu poderia criar um metodo handler para os elementos da pagina web? vê como poderia transformar esse print numa função também? ... Tudo isso será abordado aqui: [MODULO 2 - FUNÇÕES](../function/fnc.md)
+No proximo módulo vamos fazer com que esse código não seja tão "straightforward". Está vendo essas duas chamadas iguais do `sleep` ? vamos transformar ela numa função. Vê o hard coding? vamos remover. Vê como poderíamos criar um handler para os elementos da pagina web? vê como poderia transformar esse print numa função também? (...)? 
+Tudo isso será abordado aqui: [MODULO 2 - FUNÇÕES](../function/fnc.md)
