@@ -128,11 +128,11 @@ Meios os quais até hoje nunca deixaram de sanar qualquer duvida que eu tive, e 
 
 Pouco tempo atrás o Posh se tornou-se multiplataforma e open source (ago/2016) e juntamente as parcerias entre a Microsoft e a RedHat 
 
-[Windows Love Linux](httPosh://blogs.technet.microsoft.com/windowsserver/2015/05/06/microsoft-loves-linux/) - - -
+[Windows Love Linux](httPosh://blogs.technet.microsoft.com/windowsserver/2015/05/06/microsoft-loves-linux/)
 
-[RedHat Love Azure](httPosh://azure.microsoft.com/pt-br/campaigns/redhat/) - - -
+[RedHat Love Azure](httPosh://azure.microsoft.com/pt-br/campaigns/redhat/)
 
-[RedHat Strategic Alliance](httPosh://www.redhat.com/pt-br/partners/strategic-alliance/microsoft) ---
+[RedHat Strategic Alliance](httPosh://www.redhat.com/pt-br/partners/strategic-alliance/microsoft)
 
 Posh torna-se (com certeza) uma coisa a se prestar atenção e dedicar um tempo de aprendizado.
 
