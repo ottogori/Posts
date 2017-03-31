@@ -39,16 +39,24 @@ Param(
 
 Isto acima é o powershell, pra quem nunca viu =)
 
-Decidi fazer deste, um post de introdução ao framework Powershell e um pouco de seu ecossistema. 
+Decidi fazer deste, um post de introdução ao framework Powershell e um pouco de seu ecossistema.
 Mais a frente aprofundarei seus módulos, funcionalidades e darei alguns exemplos reais, por hora somente um overview.
+
+Esse post tem diversos links, recomendo que acesse eles ao longo da leitura para melhor entendimento...entretanto, esse post é dividido em quatro modulos - sendo o total deste post o primeiro módulo que compreende a introdução da ferramenta numa forma mais "leve" e com um pouco de história (minha e do powershell) embutida. E outros três módulos (serão destadados por links mais abaixo) que descrevem mais profundamente o como escrever código em powershell, sendo que a ordem destes segue uma metodologia que normalmente eu sigo ao codificar alguma solução/ferramenta em powershell ou em quaquer outra linguagem.
+
+Tudo isso será melhor explicado ao longo deste primeiro post.
+
+Para aqueles que ja tem alguma (mesmo que breve) experiencia em powershell ou na plataforma .NET, ler separadamente os módulos é uma opção. Cada um dos módulos abrange o seu "nicho" e somente ele. Ainda assim, recomendo para quem nunca teve contato com a plataforma que leia este módulo acessando os links ao decorrer do mesmo, desta forma o entendimento será mais claro para você leitor que nunca teve contato com a ferramenta.
+
+>Ha também o fato de que eu gosto de distribiur alguns "easter eggs" pelo caminho, assim a experiencia de leitura fica mais divertida. 
 
 Primeiro um pequeno trecho de Historia...Que seria de um Ferreiro lvl 13 (Str 12; Sta 6; Int 10; Res 9; Cha 12; Wis 10; Wil 5; Ft 7) se ele não contasse as historias de suas Quests e experiencias além das magias que aprendeu a realizar com powershell desde muitas luas atras? 
 
 >Por "um pouco de historia", eu gostaria de brevemente mostrar o que senti ao ter contato com powershell e o porque este desempenhou uma função importante em minha carreira, e também mostrar brevemente o PS e oque pode fazer por você.
 
-Powershell sem dúvida é hoje minha escolha clara para resolver quaisquer problemas que eu encontro pelo caminho (ando tendo um affair com python, mas é recente)....Mas porque?...Bom...O powershel (A partir daqui chamado carinhosamente pelo seu nick ["**Posh**"](http://www.drogariaminasbrasil.com.br/media/catalog/product/cache/5/image/0dc2d03fe217f8c83829496872af24a0/c/h/chicletes_poosh_arcor_tutti_frutti_7g_40660.jpg)) é uma linguagem extremamente flexível, inteligível e modular enquanto ainda simples e rápida...Sem duvida uma das ferramentas mais fortes que a filha do titiu Gates (Binomial Microsoft CORP ou MS ou Master Race {o choro é livre}) criou ate hoje e uma das que mais cresceu desde seu lançamento.
+Powershell sem dúvida é hoje minha escolha clara para resolver quaisquer problemas que eu encontro pelo caminho (ando tendo um affair com python, mas é recente)....Mas porque?...Bom...O powershel (A partir daqui chamado carinhosamente pelo seu nick ["**Posh**"](http://www.drogariaminasbrasil.com.br/media/catalog/product/cache/5/image/0dc2d03fe217f8c83829496872af24a0/c/h/chicletes_poosh_arcor_tutti_frutti_7g_40660.jpg)) é uma linguagem extremamente flexível, inteligível e modular, ainda assim sem deixar de ser simples e rápida/leve...Sem dúvida uma das ferramentas mais fortes que a filha do titiu Gates (Binomial Microsoft CORP ou MS ou Master Race {o choro é livre}) criou ate hoje e uma das que mais cresceu desde seu lançamento.
 
-Voltada para a montagem de scripts poderosos e com os recursos da plataforma .NET, permite que o desenvolvedor rapidamente entregue soluções complexas com poucas linhas de código e inclusive abrangendo soluções que necessitem  resolver paradigmas de orientação a objeto.
+Voltada para a montagem de scripts poderosos e com os recursos da plataforma .NET, permite que o desenvolvedor rapidamente entregue soluções complexas com poucas linhas de código e inclusive abrangendo soluções que necessitem  resolver paradigmas de orientação. Abaixo um exemplo de CtrlJ de classe simples.
 
 ~~~powershell
 class TypeName{
@@ -80,7 +88,7 @@ class TypeName{
 
 ~~~ 
 
-Todo e qualquer procedimento, função e aproach feito em powershell segue padrões de nomenclatura (Titiu Gates e seus padrões...) e parametrização descritos [**aqui**](https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx) ... Funciona, basicamente, assim: Você precisa de uma função que copia um item? o nome dela é simples: `Copy-Item`. Quer uma que apaga um item? : `Remove-Item`. Quer uma que importe um arquivo CSV? `Import-CSV`... e assim vai... Essa estrutura "Verb-Noun" faz com que qualquer pessoa, até mesmo as com conhecimento muito breve em programação esteja prontamente apta a interpretar um código/script escrito em Posh e compreenda facilmente oque ele faz.
+Todo e qualquer procedimento, função e aproach feito em powershell segue padrões de nomenclatura (Titiu Gates e seus padrões...) e parametrização descritos [**aqui**](https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx) ... Funciona basicamente assim: Você precisa de uma função que copia um item? o nome dela é simples: `Copy-Item`. Quer uma que apaga um item? : `Remove-Item`. Quer uma que importe um arquivo CSV? `Import-CSV`... e assim vai... Essa estrutura "Verb-Noun" faz com que qualquer pessoa, até mesmo as com conhecimento muito breve em programação esteja prontamente apta a interpretar um código/script escrito em Posh e compreenda facilmente oque ele faz.
 
 A comunidade adere fortemente a estes conceitos, estão temos um crescimento muito solido e controlado.
 
