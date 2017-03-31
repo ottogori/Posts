@@ -138,7 +138,7 @@ Hoje (03/2017) em sua versão do [wmf 5.1](https://blogs.msdn.microsoft.com/powe
 
 Funciona muito bem como ferramenta de gestão para [Azure](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/) e [Server Cores](https://msdn.microsoft.com/pt-br/library/jj574205(v=ws.11).aspx) e tem suporte nativo a ferramentas uteis como [Docker](https://github.com/Microsoft/Docker-PowerShell) e outras.
 
-Para trabalhar com powershell, basicamente oque você precisa ter é seu windows atualizado (Ou [Linux](https://github.com/PowerShell/PowerShell)), pois todas suas dependencias ja estão nativas no SO. Você vai se deparar com a [ISE](https://msdn.microsoft.com/pt-br/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) ou com a Console.
+Para trabalhar com powershell, basicamente oque você precisa ter é seu windows atualizado (Ou [Linux](https://github.com/PowerShell/PowerShell)), pois todas suas dependencias ja estão nativas no SO. Você vai se deparar com a [ISE](https://msdn.microsoft.com/pt-br/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) ou com a Console. Caso tenha curiosidade, esses são os [system-requirements](https://msdn.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements)
 
 Eventualmente também gosto de usar o [Visual Studio Code](https://github.com/Microsoft/vscode) para meus scripts, porém sempre dou preferencia para trabalhar com ferramentas nativas e sem dependências (não gosto de depender/baixar/configurar alguma coisa para poder trabalhar - isso tem muito a ver com agilidade), por isso me mantendo na ISE e Console somente. Até porque, elas sinceramente funcionam muito bem...A Intellisense é rápida e clara e não ha inconsistências de funcionamento. Importar modulos é bem facil (Te dou 5 segundos para pensar qual será o conjunto de "Verb-Noun" que IMPORTA um MODULO no powershell - E aposto o ultimo pedaço da pizza que você acerta). 
 
@@ -150,7 +150,21 @@ Por fim, após editar um script na ISE, sua execução e dupuração é bem rapi
 Write-Host "po-po-po-po-power!"
 ~~~
 
-Bom...vamos então aos aprofundamentos seguindo a metodologia que citei laaaaa 
+Bom...vamos então aos aprofundamentos seguindo a metodologia que citei laaaaa em cima. Existem "dois grandes mundos" em que o Posh te ajuda muito, o primeiro é como uma ferramenta de gestão de seu sistema, e o segundo é como uma ferramenta de automação, vou discorrer um pouco aqui sobre o segundo. 
+
+Primeiro: Vamos pensar numa POC de automação?...Digamos que após um deployment eu precise atestar uma funcionalidade basica da aplicação "deployada", então vamos supor que eu precise somente abrir uma pagina web e logar na aplicação.
+
+Vamos la.
+
+A primeira coisa a se pensar é o caminho "straightforward" ou "direto" dessa execução, então digamos um script que crie um COM do Explorer, navegue até a pagina, identifique os objetos de login e senha, complete-os e aperte o botão "login". Esse Script é descrito neste módulo: [MODULO 1 - SCRIPT](script/sc.md) - Neste módulo, vou descrever brevemente a sintaxe do powershell, seu set-up e realizar essa POC citada acima.
+
+A segunda coisa é fazer com que esse código seja mais reutilizável, então deixaremos de ter um script "travado" que só execute aquilo para ter um conjunto de funções que eu possa chamar a meu bel sabor. Isso será abordado neste módulo [MODULO 2 - FUNÇÕES](function/fnc.md)
+
+A terceira ação é fazer com que esse código possa ser carregado por outro, transformando-o em um "powershell module" e também trazendo algum usos de funções avançada, modularização e criando uma estrutura que permite que esse código seja mais portavel ainda, podendo então ser utilizado em qualquer necessidade de nossa POC. Isso será abordado em nosso [MODULO 3 - AVANÇADO](advFunction/adv.md) 
+
+Tendo ciencia dos tres modulos, você deve terminar esta leitura sendo capaz de automatizar suas necessidades usando powershell
+
+
     
 
 
