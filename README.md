@@ -112,6 +112,8 @@ Hoje ela ja é muito mais que isso.
 
 Sendo ele um framework para automação de tarefas e gerenciamento de configuração, o Posh fornece total controle aos: [COM](https://msdn.microsoft.com/en-us/library/windows/desktop/ms690343(v=vs.85).aspx), [WMI](https://msdn.microsoft.com/en-us/library/aa394582(v=vs.85).aspx) e [CIMs](https://en.wikipedia.org/wiki/Common_Information_Model_(computing)) Para os Linux Peasants. 
 
+>Uma diferença legal do posh para com as demais "command-line interfaces" é que o posh foi feito para manusear objetos. Toda informação é um encapsulamento de propriedades/metodos/etc que você pode usar, não é somente texto sendo exibido na tela.
+
 Temos também o recente [DSC](https://msdn.microsoft.com/pt-br/powershell/dsc/overview) Para realizar o "Desired State Configuration". 
 
 Com uma forte base nas estruturas: [Script Module](https://msdn.microsoft.com/en-us/library/dd878340(v=vs.85).aspx), [Binary Module](https://msdn.microsoft.com/en-us/library/dd878342(v=vs.85).aspx) e [Module Manifest](https://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx). 
@@ -138,17 +140,13 @@ Hoje (03/2017) em sua versão do [wmf 5.1](https://blogs.msdn.microsoft.com/powe
 
 Funciona muito bem como ferramenta de gestão para [Azure](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/) e [Server Cores](https://msdn.microsoft.com/pt-br/library/jj574205(v=ws.11).aspx) e tem suporte nativo a ferramentas uteis como [Docker](https://github.com/Microsoft/Docker-PowerShell) e outras.
 
-Para trabalhar com powershell, basicamente oque você precisa ter é seu windows atualizado (Ou [Linux](https://github.com/PowerShell/PowerShell)), pois todas suas dependencias ja estão nativas no SO. Você vai se deparar com a [ISE](https://msdn.microsoft.com/pt-br/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) ou com a Console. Caso tenha curiosidade, esses são os [system-requirements](https://msdn.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements)
+Para trabalhar com powershell, basicamente oque você precisa ter é seu windows atualizado (Ou [Linux](https://github.com/PowerShell/PowerShell)), pois todas suas dependencias ja estão nativas no SO. Você vai se deparar com a [ISE](https://msdn.microsoft.com/pt-br/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) ou com a Console. Caso tenha curiosidade, esses são os [system-requirements](https://msdn.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements) 
 
 Eventualmente também gosto de usar o [Visual Studio Code](https://github.com/Microsoft/vscode) para meus scripts, porém sempre dou preferencia para trabalhar com ferramentas nativas e sem dependências (não gosto de depender/baixar/configurar alguma coisa para poder trabalhar - isso tem muito a ver com agilidade), por isso me mantendo na ISE e Console somente. Até porque, elas sinceramente funcionam muito bem...A Intellisense é rápida e clara e não ha inconsistências de funcionamento. Importar modulos é bem facil (Te dou 5 segundos para pensar qual será o conjunto de "Verb-Noun" que IMPORTA um MODULO no powershell - E aposto o ultimo pedaço da pizza que você acerta). 
 
 Por fim, após editar um script na ISE, sua execução e dupuração é bem rapida e facilitada.
 
-![](./imgs/masterraceApproved.gif)
-
-~~~Powershell
-Write-Host "po-po-po-po-power!"
-~~~
+>Aqui termina o "Um pouco de hitória", vamos agora sujar um pouco as mãos
 
 Bom...vamos então aos aprofundamentos seguindo a metodologia que citei laaaaa em cima. Existem "dois grandes mundos" em que o Posh te ajuda muito, o primeiro é como uma ferramenta de gestão de seu sistema, e o segundo é como uma ferramenta de automação, vou discorrer um pouco aqui sobre o segundo. 
 
@@ -162,7 +160,11 @@ A segunda coisa é fazer com que esse código seja mais reutilizável, então de
 
 A terceira ação é fazer com que esse código possa ser carregado por outro, transformando-o em um "powershell module" e também trazendo algum usos de funções avançada, modularização e criando uma estrutura que permite que esse código seja mais portavel ainda, podendo então ser utilizado em qualquer necessidade de nossa POC. Isso será abordado em nosso [MODULO 3 - AVANÇADO](advFunction/adv.md) 
 
-Tendo ciencia dos tres modulos, você deve terminar esta leitura sendo capaz de automatizar suas necessidades usando powershell
+![](./imgs/masterraceApproved.gif)
+
+~~~Powershell
+Write-Host "po-po-po-po-power!"
+~~~
 
 
     
