@@ -38,16 +38,16 @@ Digamos que você se depara com o seguinte script:
     $ie.Quit()
 ~~~
 
-Notoriamente ha oque melhorar, certo? Vamos então listar os pontos de melhoria para guiar nosso "code refactor":
+Notoriamente há o que melhorar, certo? Vamos então listar os pontos de melhoria para guiar nosso "code refactor":
 
-1. Ha trechos de chamadas repetidas, esses podem ser transformados em funções.
-2. Esse script executa SOMENTE isso...não ha reutilização para nenhum dos pedaços contidos nele.
-3. Ha hardcoding em alguns pontos
-4. Não ha um padrão claro de nomenclatura para as variáveis
+1. Há trechos de chamadas repetidas, esses podem ser transformados em funções.
+2. Esse script executa SOMENTE isso, não ha reutilização para nenhum dos pedaços contidos nele.
+3. Há hardcoding em alguns pontos.
+4. Não há um padrão claro de nomenclatura para as variáveis.
 
 Vamos resolver por etapas? 
 
-Etapa 1 : criar funções para remover a repetição de chamadas dentro do código.
+Etapa 1: Criar funções para remover a repetição de chamadas dentro do código.
 
 A primeira que me vem em mente é a mais simples:
 
@@ -57,17 +57,17 @@ A primeira que me vem em mente é a mais simples:
     }
 ~~~
 
-Existem varias formas de escrever - corretamente - funções no Posh, basicamente gosto de dividir em 3 grupos ("simples", "funções" e "funções avançadas"). Explico-as:
+Existem várias formas de escrever - corretamente - funções no Posh, basicamente gosto de dividir em 3 grupos ("simples", "funções" e "funções avançadas"). Explico-as:
 
-1. "Funções simples" são funções que julgo não ter a necessidade de um emprego enorme de esforço, não queremos matar um formiga com um um lana chamas né Hanz? 
-2. "Funções" são trechos de código que julgo necessitarem de um pouco mais de cuidado, por exemplo: Validar o tipo de um parametro antes de iniciar a execução, validar se esse parametro está dentro de oque eu espero; Tratar possiveis erros de execução; Verificar se alguma dependencia está previamente carregada antes de começar a execução; Etc....
-3. "Funções avançadas" além de uma estrutura do Posh é também aquilo que eu chamo de uma ferramenta extremamente polida e não passivel de falha. Essas funções demandam um esforço e conhecimento bem maior tanto de codificação quanto de boas praticas e também da estrutura de funcionamento do Powershell
+1. "Funções simples" são funções que julgo não ter a necessidade de um emprego enorme de esforço, não queremos matar um formiga com um um lança chamas né Hanz? 
+2. "Funções" são trechos de código que julgo necessitarem um pouco mais de cuidado, por exemplo: validar o tipo de um parâmetro antes de iniciar a execução, validar se esse parâmetro está dentro de o que eu espero; tratar possíveis erros de execução; verificar se alguma dependência está previamente carregada antes de começar a execução; etc....
+3. "Funções avançadas", além de uma estrutura do Posh, são também aquilas que eu chamo de ferramentas extremamente polida e não passivel de falha. Essas funções demandam um esforço e conhecimento bem maior tanto de codificação quanto de boas praticas e também da estrutura de funcionamento do Powershell.
 
-Lembro, tu, leitor que é importante seguir as convenções de nomenclatura que podem ser encontradas aqui:[Verb-Noun](https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx)
+Lembro, tu, leitor que é importante seguir as convenções de nomenclatura que podem ser encontradas aqui: [Verb-Noun](https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx)
 
-Como essa nossa megera funçãozinha só executa um sleep, vou mante-la como algo simples e acreditar que a pessoa que a invocar sabe oque está fazendo.
+Como essa nossa megera funçãozinha só executa um sleep, vou mantê-la como algo simples e acreditar que a pessoa que a invocar sabe o que está fazendo.
 
->Nota do diabinho sentado ombro esquerdo do Editor: Sempre acredite na capacidade humana de fazer coisas boas, mas sempre tenha em mente a capacidade humana de fazer caquinha.
+>Nota do diabinho sentado ao ombro esquerdo do Editor: sempre acredite na capacidade humana de fazer coisas boas, mas sempre tenha em mente a capacidade humana de fazer caquinha.
 
 Temos então:
 
@@ -79,7 +79,7 @@ Temos então:
     }
 ~~~
 
-Outro trecho que pode ser escrito numa função simples é a ação de criar o Objeto Internet Explorer. Incluí um "try/catch" aqui imaginando a possibilidade de o IE não estar habilitado no SO executor, e porque assim ja apresento essa estrutura a vocês. Fica assim:
+Outro trecho que pode ser escrito numa função simples é a ação de criar o Objeto Internet Explorer. Incluí um "try/catch" aqui imaginando a possibilidade de o IE não estar habilitado no SO executor, e porque assim já apresento essa estrutura a vocês. Fica assim:
 
 ~~~powershell
     Function New-IExplorer{
@@ -91,7 +91,7 @@ Outro trecho que pode ser escrito numa função simples é a ação de criar o O
     }
 ~~~
 
-O ultimo trecho nessa iteração de nosso refactor que será transformado em função é a execução do "Print Screen", esse vou brincar um pouco mais com a função para mostrar algumas coisas para vocês. Ela ficou assim:
+O último trecho nessa iteração de nosso refactor que será transformado em função é a execução do "Print Screen", esse vou brincar um pouco mais com a função para mostrar algumas coisas a vocês. Ela ficou assim:
 
 ~~~powershell
 <#
@@ -147,7 +147,7 @@ param(
 }
 ~~~
 
-A primeira coisa a reparar é o bloco de comentário no inicio. Na verdade não são comentarios e sim epecificações desta função. Isso faz com que quem for usar essa função possa executar um `Get-Help Export-PrintScreen` e receba essa descrição
+A primeira coisa a reparar é o bloco de comentário no início. Na verdade não são comentários e sim epecificações desta função. Isso faz com que quem for usar essa função possa executar um `Get-Help Export-PrintScreen` e receba essa descrição.
 
 ~~~powershell
     PS C:\Users\ottog> Get-Help Export-PrintScreen
@@ -193,7 +193,7 @@ Ou `Get-Help Export-PrintScreen -Exeples`
         PS C:\>Export-PrintScreen -sSavePath $HOME -sFileName "print.png"
 ~~~
 
-A segunda coisa a reparar é o bloco de validação de parametros. Observe que o parametro `$sSavePath` [de posição Zero] é validado como um diretório que existe e "setado" para $HOME como default caso o usuário não espessifique nenhum outro. O parametro `$sFileName` [de posição 1] é o único obrigatório e tem uma mensagem de ajuda. que pode ser obtida com o comando `Get-Help Export-PrintScreen -Parameter sFileName`
+A segunda coisa a reparar é o bloco de validação de parâmetros. Observe que o parâmetro `$sSavePath` [de posição Zero] é validado como um diretório que existe e "setado" para $HOME como default caso o usuário não espessifique nenhum outro. O parâmetro `$sFileName` [de posição 1] é o único obrigatório e tem uma mensagem de ajuda, que pode ser obtida com o comando `Get-Help Export-PrintScreen -Parameter sFileName`.
 
 ~~~powershell
     param(
@@ -235,9 +235,9 @@ Por fim o bloco de execução em si, que recebeu padrão na nomenclatura (seguin
     }
 ~~~
 
->Ufa...ja fizemos bastante coisa, tem só mais um pouquinho, prometo.
+>Ufa... Já fizemos bastante coisa, tem só mais um pouquinho, prometo.
 
-O proximo passo é criar uma função para encontrar os elementos dentro do Internet Explorer. Mapeei dois comportamentos de nossas ações na pagina, o primeiro é preencher um valor e o segundo é clicar num botão.
+O próximo passo é criar uma função para encontrar os elementos dentro do Internet Explorer. Mapeei dois comportamentos de nossas ações na página, o primeiro é preencher um valor e o segundo é clicar num botão.
 
 >Vou aproveitar e montar uma estrutura de case/switch, aqui, para exemplificar seu uso.
 
@@ -277,7 +277,7 @@ Param(
 
 ~~~
 
-Observe um novo tipo de validação de parametro chamado "Validate Set" - Isso faz com que ao chamar essa função por linha de comando, um comboBox SOMENTE com essas opções seja exibido, qualquer outro valor não será aceito.
+Observe um novo tipo de validação de parâmetro chamado "Validate Set". Isso faz com que ao chamar essa função por linha de comando, um comboBox SOMENTE com essas opções seja exibido, qualquer outro valor não será aceito.
 
 >ACABOU - É TRETRAAAA
 
