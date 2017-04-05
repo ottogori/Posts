@@ -67,33 +67,6 @@ param(
 
 function Handle-IeObj{
 [CmdletBinding()]
-[Alias()]
-[OutputType([int])]
-Param(
-    # Param1 help description
-    [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]$ieObj,
-
-    # Param2 help description
-    [ValidateSet("Txt","Btn")][string]$sObjType,
-    [string]$sObjName,
-    [ValidateSet("FillValue","Click")][string]$sObjAction,
-    [string]$sFillValue
-
-)
-    Process{
-        Switch($sObjType){
-            Txt{
-                ($ieObj.Document.getElementsByName($sObjName) | Select-Object -Unique).Value = $sFillValue
-            } Btn{
-                ($ieObj.Document.getElementsByName($sObjName) | Select-Object -Unique).Click()
-            }
-        }
-    }
-
-}
-
-function Handle-IeObj{
-[CmdletBinding()]
 Param(
     # Essa é outra opção de Help Message
     [Parameter(Mandatory=$true,Position=0)]
