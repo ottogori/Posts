@@ -145,7 +145,7 @@ Por fim, após editar um script na ISE, sua execução e dupuração é bem ráp
 
 Bom... Vamos então aos aprofundamentos seguindo a metodologia que citei laaaaa em cima. Existem "dois grandes mundos" em que o Posh te ajuda muito, o primeiro é como uma ferramenta de gestão de seu sistema, e o segundo é como uma ferramenta de automação, vou discorrer um pouco aqui sobre o segundo. 
 
-Primeiro: Vamos pensar numa POC de automação?...Digamos que após um deployment eu precise atestar uma funcionalidade básica da aplicação "deployada", então vamos supor que eu precise somente abrir uma página web e logar na aplicação.
+Primeiro: Vamos pensar numa POC de automação?...Digamos que após um deployment eu precise atestar uma funcionalidade básica da aplicação que acabou de ser instalada, então vamos supor que eu precise somente abrir uma página web e logar na aplicação.
 
 Vamos lá.
 

@@ -11,7 +11,7 @@ A primeira coisa que terei de fazer é criar um COM-Object do Internet Explorer.
     $ie.Visible = $True
 ~~~
 
-Aqui então a variável "$ie" (no Posh, variáveis são iniciadas por "$"{algo que a MS gosta}) recebe um objeto "InternetExplorer.Application", todas as propriedades deste objeto são acessíveis via dotSourcing.
+Aqui então a variável `$ie` (no Posh, variáveis são iniciadas por "$"{algo que a MS gosta}) recebe um objeto `InternetExplorer.Application`, todas as propriedades deste objeto são acessíveis via dotSourcing.
 
 A segunda ação é navegar até a página do github e aguardar que o COM esteja livre para uso.
 
@@ -34,13 +34,13 @@ Com a página carregada, preciso identificar os objetos da tela e popular seus v
     $ie.Document.getElementsByName("login")
 ~~~ 
 
-Porém, a linha acima me traz o objeto e o que eu quero é selecionar e popular com um texto, para isso uso outra função do Posh, a "Select-Object" com o switch "-Unique" que faz desta uma seleção unária.
+Porém, a linha acima me traz o objeto e o que eu quero é selecionar e popular com um texto, para isso uso outra função do Posh, a `Select-Object` com o switch `-Unique` que faz desta uma seleção unária.
 
 ~~~powershell
     $ie.Document.getElementsByName("login") | Select-Object -Unique
 ~~~
 
-"Seto" então a propriedade "Value" deste objeto com o meu login do github.
+Defino então a propriedade `Value` deste objeto com o meu login do github.
 
 ~~~powershell
     ($ie.Document.getElementsByName("login") | Select-Object -Unique).Value = "otto.gori@concrete.com.br"
@@ -56,7 +56,7 @@ Observem a evolução da seleção quando executada na console:
     form-control input-block login_field INPUT   System.__ComObject System.__ComObject
 ~~~
 
-Cada uma destas propriedades é um objeto que pode ser expandido e trabalhado, digamos que eu queira saber o tipo deste objeto. Para isso basta selecionar a propriedade "type".
+Cada uma destas propriedades é um objeto que pode ser expandido e trabalhado, digamos que eu queira saber o tipo deste objeto. Para isso basta selecionar a propriedade `type`.
 
 ~~~powershell
     C:\Users\ottog> $ie.Document.getElementsByName("login") | Select-Object type | Format-Table

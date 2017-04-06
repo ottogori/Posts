@@ -42,7 +42,7 @@ Notoriamente há o que melhorar, certo? Vamos então listar os pontos de melhori
 
 1. Há trechos de chamadas repetidas, esses podem ser transformados em funções.
 2. Esse script executa SOMENTE isso, não ha reutilização para nenhum dos pedaços contidos nele.
-3. Há hardcoding em alguns pontos.
+3. Há [hardcoding](https://pt.wikipedia.org/wiki/Hard_code) em alguns pontos.
 4. Não há um padrão claro de nomenclatura para as variáveis.
 
 Vamos resolver por etapas? 
@@ -193,7 +193,7 @@ Ou `Get-Help Export-PrintScreen -Exeples`
         PS C:\>Export-PrintScreen -sSavePath $HOME -sFileName "print.png"
 ~~~
 
-A segunda coisa a reparar é o bloco de validação de parâmetros. Observe que o parâmetro `$sSavePath` [de posição Zero] é validado como um diretório que existe e "setado" para $HOME como default caso o usuário não espessifique nenhum outro. O parâmetro `$sFileName` [de posição 1] é o único obrigatório e tem uma mensagem de ajuda, que pode ser obtida com o comando `Get-Help Export-PrintScreen -Parameter sFileName`.
+A segunda coisa a reparar é o bloco de validação de parâmetros. Observe que o parâmetro `$sSavePath` [de posição Zero] é validado como um diretório que existe e definido para `$HOME` como default caso o usuário não espessifique nenhum outro. O parâmetro `$sFileName` [de posição 1] é o único obrigatório e tem uma mensagem de ajuda, que pode ser obtida com o comando `Get-Help Export-PrintScreen -Parameter sFileName`.
 
 ~~~powershell
     param(
@@ -277,7 +277,7 @@ Param(
 
 ~~~
 
-Observe um novo tipo de validação de parâmetro chamado "Validate Set". Isso faz com que ao chamar essa função por linha de comando, um comboBox SOMENTE com essas opções seja exibido, qualquer outro valor não será aceito.
+Observe um novo tipo de validação de parâmetro chamado `Validate Set`. Isso faz com que ao chamar essa função por linha de comando, um comboBox SOMENTE com essas opções seja exibido, qualquer outro valor não será aceito.
 
 >ACABOU - É TRETRAAAA
 
