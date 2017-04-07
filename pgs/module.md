@@ -2,9 +2,9 @@
     Install-Module Chewbacca-Says 'Hrrrghghh Graaannngg'
 ~~~
 
-[|Módulo|](https://educacao.uol.com.br/disciplinas/matematica/modulo-ou-valor-absoluto-calculando-o-modulo.htm) no mundo Posh é um conjunto de funcionalidades agrupadas numa unidade que lhe convém. Agrupando uma boa quantia de scripts, assemblies, recursos e afins, você consegue compartilhar e reutilizar seu código com muito mais facilidade que em muitas outras longuagens ou frameworks.
+[|Módulo|](https://educacao.uol.com.br/disciplinas/matematica/modulo-ou-valor-absoluto-calculando-o-modulo.htm) no mundo Posh é um conjunto de funcionalidades agrupadas numa unidade que lhe convém. Agrupando uma boa quantia de scripts, assemblies, recursos e afins, você consegue compartilhar e reutilizar seu código com muito mais facilidade que em muitas outras linguagens ou frameworks.
 
-A principal função dos módulos é permitir modularização (Leia a fraze anterior de novo, caso deseje que seu QI baixe alguns pontos) e abstação de código Posh.
+A principal função dos módulos é permitir modularização (Leia a fraze anterior de novo caso deseje que seu QI baixe alguns pontos) e abstação de código Posh.
 
 Para criar um módulo PS, basta salvar seu arquivo com a extensão ".psm1".
 
@@ -98,6 +98,11 @@ Como esse módulo só contem uma função, a mesma poderia estar exposta, entret
 Para usarmos o módulo, devemos posicioná-lo em um dos caminhos default que o PS pode ver. Você pode obter um desses valores com este comando: `$env:PSModulePath`. Por convençao podemos usar: `%SystemRoot%\users\<user>\Documents\WindowsPowerShell\Modules\<moduleName>`.
 
 Agora basta importarmos o módulo com o comando: `Import-Module Print-Screen` no inicio de nosso código original, e usar sua função normalmente.
+
+>Você também pode fazer isso por meio de dotSourcing `.\Print-Screen`, mas essa não é uma boa opção quando se pensa em escalabilidade ou usabilidade...afinal, se o módulo não estiver no exato diretório que esperava, isso não vai funcionar.
+
+Com o módulo importado, basta chamar suas funções normalmente como se fossem nativas ao sistema.
+Existem situações que você tem dois módulos com funções de mesmo nome, para mitigar isso costumamos "Tipar" a chamada com o nome do módulo, em nosso caso fica `Print-Screen\Export-PrintScreen -sSavePath $HOME -sFileName "print.png"` ou seja, isso é um "From<MODULE>\Call<Function> [-Args-]"
 
 >Lembre de sempre remover o módulo ao final de seu uso para não deixar [sujeira na memoria](https://img1.ibxk.com.br/2012/3/materias/52348152015113625.jpg?w=700)
 
