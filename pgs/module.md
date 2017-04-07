@@ -93,7 +93,7 @@ Como esse módulo só contem uma função, a mesma poderia estar exposta, entret
     Export-ModuleMember -function Export-PrintScreen
 ~~~
 
->Você também pode restringir os acessos usando [manifestos](https://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx). Se houver alguma dependencia nesse módulo, ela deve ser declarada no início com uma linha semelhante a que temos no topo desta página: `Import-Module Lord-Vader -MinimumVersion 'RogueOne'`, por fim, se ainda houver alguma dependencia (Ex: Arquivo XML), está também pode ser controlada usando um manifesto.
+>Você também pode restringir os acessos usando [manifestos](https://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx). Se houver alguma dependencia nesse módulo, ela deve ser declarada no início com uma linha semelhante a que temos no topo desta página: `Import-Module Lord-Vader -MinimumVersion 'RogueOne'`, por fim, se ainda houver alguma dependencia (Ex: Arquivo XML), esta também pode ser controlada usando um manifesto.
 
 Para usarmos o módulo, devemos posicioná-lo em um dos caminhos default que o PS pode ver. Você pode obter um desses valores com este comando: `$env:PSModulePath`. Por convençao podemos usar: `%SystemRoot%\users\<user>\Documents\WindowsPowerShell\Modules\<moduleName>`.
 
