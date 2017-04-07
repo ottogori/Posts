@@ -90,7 +90,7 @@ O primeiro passo é externar o código de nossa função para um arquivo apartad
 Como esse módulo só contem uma função, a mesma poderia estar exposta, entretanto por padrão, expomos exatamente os pontos que desejamos expor no final do código.
 
 ~~~powershell
-    export-modulemember -function Export-PrintScreen
+    Export-ModuleMember -function Export-PrintScreen
 ~~~
 
 >Você também pode restringir os acessos usando [manifestos](https://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx). Se houver alguma dependencia nesse módulo, ela deve ser declarada no início com uma linha semelhante a que temos no topo desta página: `Import-Module Lord-Vader -MinimumVersion 'RogueOne'`, por fim, se ainda houver alguma dependencia (Ex: Arquivo XML), está também pode ser controlada usando um manifesto.
@@ -102,8 +102,8 @@ Agora basta importarmos o módulo com o comando: `Import-Module Print-Screen` no
 >Você também pode fazer isso por meio de dotSourcing `.\Print-Screen`, mas essa não é uma boa opção quando se pensa em escalabilidade ou usabilidade...afinal, se o módulo não estiver no exato diretório que esperava, isso não vai funcionar.
 
 Com o módulo importado, basta chamar suas funções normalmente como se fossem nativas ao sistema.
-Existem situações que você tem dois módulos com funções de mesmo nome, para mitigar isso costumamos "Tipar" a chamada com o nome do módulo, em nosso caso fica `Print-Screen\Export-PrintScreen -sSavePath $HOME -sFileName "print.png"` ou seja, isso é um "From<MODULE>\Call<Function> [-Args-]"
+Existem situações que você tem dois módulos, de terceiros, com funções de mesmo nome. Para mitigar isso costumamos "Tipar" a chamada com o nome do módulo que deseja usar nesta chamada, em nosso caso fica `Print-Screen\Export-PrintScreen -sSavePath $HOME -sFileName "print.png"` ou seja, isso é um "From<MODULE>\Call<Function> [-Args-]"
 
->Lembre de sempre remover o módulo ao final de seu uso para não deixar [sujeira na memoria](https://img1.ibxk.com.br/2012/3/materias/52348152015113625.jpg?w=700)
+>Lembre de sempre remover o módulo ao final de seu uso para não deixar [sujeira na memoria](https://img1.ibxk.com.br/2012/3/materias/52348152015113625.jpg?w=700). Aposto que a essa altura você já sabe o comando...[**.**](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/remove-module)
 
 Em nossa proxima brincadeira vamos fazer algumas funções com recursos avançados [MODULO 4 - AVANÇADO](./adv.md)

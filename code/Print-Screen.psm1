@@ -49,3 +49,5 @@ param(
     
     }
 }
+
+Export-ModuleMember -function Export-PrintScreen
