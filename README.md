@@ -149,11 +149,13 @@ Primeiro: Vamos pensar numa POC de automação?...Digamos que após um deploymen
 
 Vamos lá.
 
-A primeira coisa a se pensar é o caminho "straightforward" ou "direto" dessa execução. Então digamos um script que crie um COM do Explorer, navegue até a página "X", identifique os objetos de login e senha, complete-os e aperte o botão "login". Esse Script é descrito neste módulo: [MODULO 1 - SCRIPT](script/sc.md). Neste módulo, vou descrever brevemente a sintaxe do powershell, seu set-up e realizar essa POC citada acima.
+A primeira coisa a se pensar é o caminho "straightforward" ou "direto" dessa execução. Então digamos um script que crie um COM do Explorer, navegue até a página "X", identifique os objetos de login e senha, complete-os e aperte o botão "login". Esse Script é descrito neste módulo: [MODULO 1 - SCRIPT](pgs/sc.md). Neste módulo, vou descrever brevemente a sintaxe do powershell, seu set-up e realizar essa POC citada acima.
 
-A segunda coisa é fazer com que esse código seja mais reutilizável, então deixaremos de ter um script "travado" que só execute aquilo para ter um conjunto de funções que eu possa chamar a meu bel sabor. Isso será abordado neste módulo [MODULO 2 - FUNÇÕES](function/fnc.md)
+A segunda coisa é fazer com que esse código seja mais reutilizável, então deixaremos de ter um script "travado" que só execute aquilo para ter um conjunto de funções que eu possa chamar a meu bel sabor. Isso será abordado neste módulo [MODULO 2 - FUNÇÕES](pgs/fnc.md)
 
-A terceira ação é fazer com que esse código possa ser carregado por outro, transformando-o em um "powershell module" e também trazendo algum usos de funções avançada, modularização e criando uma estrutura que permite que esse código seja mais portável ainda, podendo então ser utilizado em qualquer necessidade de nossa POC. Isso será abordado em nosso [MODULO 3 - AVANÇADO](advFunction/adv.md) 
+A terceira ação é modularizar nosso código, para atingirmos uma maior escalabilidade, controle, abstração e aumentando ainda mais o reúso de nosso código [MODULO 3 - MÓDULOS](pgs/module.md)
+
+A quarta ação é fazer com que esse código possa ser carregado por outro, transformando-o em um "powershell module" e também trazendo algum usos de funções avançada, modularização e criando uma estrutura que permite que esse código seja mais portável ainda, podendo então ser utilizado em qualquer necessidade de nossa POC. Isso será abordado em nosso [MODULO 4 - AVANÇADO](pgs/adv.md) 
 
 ![](./imgs/masterraceApproved.gif)
 
