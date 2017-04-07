@@ -2,7 +2,7 @@
     Install-Module Chewbacca-Says 'Hrrrghghh Graaannngg'
 ~~~
 
-[|Módulo|](https://educacao.uol.com.br/disciplinas/matematica/modulo-ou-valor-absoluto-calculando-o-modulo.htm) no mundo Posh é um conjunto de funcionalidades agrupadas numa unidade que lhe convém. Agrupando uma boa quantia de scripts, assemblies, recusrsos e afins, você consegue compartilhar e reutilizar seu código com muito mais facilidade que em muitas outras longuagens ou frameworks.
+[|Módulo|](https://educacao.uol.com.br/disciplinas/matematica/modulo-ou-valor-absoluto-calculando-o-modulo.htm) no mundo Posh é um conjunto de funcionalidades agrupadas numa unidade que lhe convém. Agrupando uma boa quantia de scripts, assemblies, recursos e afins, você consegue compartilhar e reutilizar seu código com muito mais facilidade que em muitas outras longuagens ou frameworks.
 
 A principal função dos módulos é permitir modularização (Leia a fraze anterior de novo, caso deseje que seu QI baixe alguns pontos) e abstação de código Posh.
 
