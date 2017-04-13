@@ -154,7 +154,7 @@ A segunda coisa é fazer com que esse código seja mais reutilizável, então de
 
 A terceira ação é modularizar nosso código, transformando-o em um "powershell module", para atingirmos uma maior escalabilidade, controle, abstração e aumentando ainda mais o reúso de nosso código [MODULO 3 - MÓDULOS](pgs/module.md)
 
-A quarta ação é disponibilizar recursos avaçados a nossas funções. Isso será abordado em nosso [MODULO 4 - AVANÇADO](pgs/adv.md) 
+<!--[//] #A quarta ação é disponibilizar recursos avaçados a nossas funções. Isso será abordado em nosso [MODULO 4 - AVANÇADO](pgs/adv.md) -->
 
 ![](./imgs/masterraceApproved.gif)
 

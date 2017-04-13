@@ -106,4 +106,4 @@ Existem situações que você tem dois módulos, de terceiros, com funções de 
 
 >Lembre de sempre remover o módulo ao final de seu uso para não deixar [sujeira na memoria](https://img1.ibxk.com.br/2012/3/materias/52348152015113625.jpg?w=700). Aposto que a essa altura você já sabe o comando...[**.**](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/remove-module)
 
-Em nossa proxima brincadeira vamos fazer algumas funções com recursos avançados [MODULO 4 - AVANÇADO](./adv.md)
+<!-- [//]: #Em nossa proxima brincadeira vamos fazer algumas funções com recursos avançados [MODULO 4 - AVANÇADO](./adv.md) -->
